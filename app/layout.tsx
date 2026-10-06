@@ -1,5 +1,4 @@
 import type { Metadata } from 'next';
-import Script from 'next/script';
 import './globals.css';
 
 export const metadata: Metadata = {
@@ -32,13 +31,11 @@ export default function RootLayout({
           rel="stylesheet"
         />
         {/* Google tag (gtag.js) */}
-        <Script
-          strategy="afterInteractive"
+        <script
+          async
           src="https://www.googletagmanager.com/gtag/js?id=AW-16896197421"
-        />
-        <Script
-          id="gtag-init"
-          strategy="afterInteractive"
+        ></script>
+        <script
           dangerouslySetInnerHTML={{
             __html: `
               window.dataLayer = window.dataLayer || [];
@@ -47,9 +44,9 @@ export default function RootLayout({
               gtag('config', 'AW-16896197421');
             `,
           }}
-        />
+        ></script>
       </head>
-      <body className="font-sans bg-white text-slate-heading antialiased min-h-screen selection:bg-blue-100 selection:text-brand-700">
+      <body className="min-h-screen font-sans antialiased bg-white text-slate-heading selection:bg-blue-100 selection:text-brand-700">
         {children}
       </body>
     </html>
