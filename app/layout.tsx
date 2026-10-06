@@ -48,6 +48,20 @@ export default function RootLayout({
             `,
           }}
         />
+        {/* Event snippet for Submit lead form conversion page */}
+        <Script
+          id="google-conversion"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              gtag('event', 'conversion', {
+                  'send_to': 'AW-16896197421/GdymCMW4jJMdEK2G3vg-',
+                  'value': 1.0,
+                  'currency': 'INR'
+              });
+            `,
+          }}
+        />
       </head>
       <body className="min-h-screen font-sans antialiased bg-white text-slate-heading selection:bg-blue-100 selection:text-brand-700">
         {children}
