@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Script from 'next/script';
 import './globals.css';
 
 export const metadata: Metadata = {
@@ -29,6 +30,23 @@ export default function RootLayout({
         <link
           href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap"
           rel="stylesheet"
+        />
+        {/* Google tag (gtag.js) */}
+        <Script
+          strategy="afterInteractive"
+          src="https://www.googletagmanager.com/gtag/js?id=AW-16896197421"
+        />
+        <Script
+          id="gtag-init"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'AW-16896197421');
+            `,
+          }}
         />
       </head>
       <body className="font-sans bg-white text-slate-heading antialiased min-h-screen selection:bg-blue-100 selection:text-brand-700">
